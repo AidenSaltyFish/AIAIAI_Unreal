@@ -3,6 +3,9 @@
 
 #include "EnemyBase.h"
 
+#include "AIController.h"
+#include "GameFramework/CharacterMovementComponent.h"
+
 
 // Sets default values
 AEnemyBase::AEnemyBase()
@@ -17,7 +20,7 @@ AEnemyBase::AEnemyBase()
 void AEnemyBase::BeginPlay()
 {
 	Super::BeginPlay();
-	WieldSword();
+	// WieldSword();
 }
 
 // Called every frame
@@ -34,28 +37,126 @@ void AEnemyBase::WieldSword()
 		return;
 	}
 	
-	UWorld* world = GetWorld();
+	// AAIController* aiController = Cast<AAIController>(this->GetController());
+	// if (aiController)
+	// {
+	// 	UE_LOG(LogTemp, Warning, TEXT("ai controller found"));
+	// }
+	// else
+	// {
+	// 	UE_LOG(LogTemp, Warning, TEXT("ai controller not found"));
+	// }
 
-	if (world)
+	USkeletalMeshComponent* SkeletalMeshComponent =
+		Cast<USkeletalMeshComponent>(this->GetComponentByClass(USkeletalMeshComponent::StaticClass()));
+
+	if (SkeletalMeshComponent)
 	{
-		AActor* spawnedActor =
-			world->SpawnActor<AActor>(BlueprintActor, GetActorLocation(), GetActorRotation());
+		UAnimInstance* AnimInstance = SkeletalMeshComponent->GetAnimInstance();
+		
+		if (AnimInstance)
+			AnimInstance->Montage_Play(WieldSwordMontage);
+	}
+	
+	// Set a timer to check the montage's position
+	GetWorld()->GetTimerManager()
+		.SetTimer(MontageTimerHandle, this, &AEnemyBase::SpawnSword, 0.1f, true);
+}
 
-		if (spawnedActor)
+void AEnemyBase::SpawnSword()
+{
+	if (bHasWieldedSword)
+		return;
+	
+	USkeletalMeshComponent* SkeletalMeshComponent =
+		Cast<USkeletalMeshComponent>(this->GetComponentByClass(USkeletalMeshComponent::StaticClass()));
+
+	if (SkeletalMeshComponent)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Skeletal mesh component found"));
+		
+		UAnimInstance* AnimInstance = SkeletalMeshComponent->GetAnimInstance();
+
+		if (AnimInstance)
 		{
-			USkeletalMeshComponent* skeletalMeshComponent =
-				Cast<USkeletalMeshComponent>(this->GetComponentByClass(USkeletalMeshComponent::StaticClass()));
-
-			if (skeletalMeshComponent)
+			if (AnimInstance->Montage_IsPlaying(WieldSwordMontage))
 			{
-				FName socketName(TEXT("hand_r_socket_sword"));
-				spawnedActor->AttachToComponent(
-					skeletalMeshComponent, FAttachmentTransformRules::SnapToTargetIncludingScale, socketName);
+				float progress =
+					AnimInstance->Montage_GetPosition(WieldSwordMontage) / WieldSwordMontage->GetPlayLength();
+
+				UE_LOG(LogTemp, Warning, TEXT("Progress: %f"), progress);
+				
+				if (progress >= 0.25f)
+				{
+					if (UWorld* world = GetWorld())
+					{
+						AActor* spawnedActor =
+							world->SpawnActor<AActor>(BlueprintActor, GetActorLocation(), GetActorRotation());
+
+						// TSharedPtr<AActor> spawnedActorShared = MakeShareable(spawnedActor);
+		
+						if (spawnedActor)
+						{
+							if (SkeletalMeshComponent)
+							{
+								FName socketName(TEXT("hand_r_socket_sword"));
+								spawnedActor->AttachToComponent(
+									SkeletalMeshComponent, FAttachmentTransformRules::SnapToTargetIncludingScale, socketName);
+							}
+						}
+					}
+
+					bHasWieldedSword = true;
+					GetWorld()->GetTimerManager().ClearTimer(MontageTimerHandle);
+				}
+			}
+			else
+			{
+				// Clear the timer if the montage is no longer playing
+				GetWorld()->GetTimerManager().ClearTimer(MontageTimerHandle);
 			}
 		}
 	}
+}
 
-	bHasWieldedSword = true;
+void AEnemyBase::SheathSword()
+{
+	if (!bHasWieldedSword)
+		return;
+	
+	USkeletalMeshComponent* SkeletalMeshComponent =
+	Cast<USkeletalMeshComponent>(this->GetComponentByClass(USkeletalMeshComponent::StaticClass()));
+
+	if (SkeletalMeshComponent)
+	{
+		UAnimInstance* AnimInstance = SkeletalMeshComponent->GetAnimInstance();
+		
+		if (AnimInstance)
+			AnimInstance->Montage_Play(SheathSwordMontage);
+	}
+	
+	bHasWieldedSword = false;
+}
+
+void AEnemyBase::DespawnSword()
+{
+	if (!bHasWieldedSword)
+		return;
+	
+	USkeletalMeshComponent* SkeletalMeshComponent =
+		Cast<USkeletalMeshComponent>(this->GetComponentByClass(USkeletalMeshComponent::StaticClass()));
+
+	// GetComponentByClass(BlueprintActor->GetClass())->DestroyComponent();
+}
+
+ASplineController* AEnemyBase::GetPatrolRoute()
+{
+	return SplineController;
+}
+
+void AEnemyBase::SetMoveSpeed(float speed)
+{
+	GetCharacterMovement()->MaxWalkSpeed = speed;
 }
 
 // // Custom event implementation

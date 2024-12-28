@@ -16,5 +16,7 @@ EBTNodeResult::Type UWieldSword::ExecuteTask(UBehaviorTreeComponent& OwnerComp, 
 	AEnemyBase* enemy = Cast<AEnemyBase>(OwnerComp.GetAIOwner()->GetPawn());
 	enemy->WieldSword();
 
+	UE_LOG(LogTemp, Warning, TEXT("Wield sword"));
+
 	return EBTNodeResult::Succeeded;
 }
