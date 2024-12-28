@@ -12,22 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7745843b-e242-4054-817b-99c519342138" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AIAIAI/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AIAIAI/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AIAIAI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AIAIAI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Animations/ABP_Manny.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Animations/ABP_Manny.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Meshes/SKM_Manny.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Meshes/SKM_Manny.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/AIC_EnemyBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/AIC_EnemyBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/BB_EnemyBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/BB_EnemyBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/BT_EnemyBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/BT_EnemyBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/MM_Stable_Sword_Outward_Slash.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/MM_Stable_Sword_Outward_Slash_Montage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/BP_EnemyBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/BP_EnemyBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Gamemode/BP_Gamemode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Gamemode/BP_Gamemode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/Tasks/BTT_WieldSword.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/Tasks/BTT_WieldSword.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/SheathingSword/MM_Sheathing_Sword_Anim_Montage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/Animation/SheathingSword/MM_Sheathing_Sword_Anim_Montage.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/WithdrawSword/MM_Withdrawing_Sword_Anim_Montage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/Animation/WithdrawSword/MM_Withdrawing_Sword_Anim_Montage.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/Blueprint/BP_EnemyBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/Blueprint/BP_EnemyBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Player/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Player/BP_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/B/81/ZBFK8I08Y9YUSKN2J6HRZO.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/B/81/ZBFK8I08Y9YUSKN2J6HRZO.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/AIAIAI/Enemy/AI/Tasks/WieldSword.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AIAIAI/Enemy/AI/Tasks/WieldSword.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/AIAIAI/Enemy/EnemyBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AIAIAI/Enemy/EnemyBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/AIAIAI/Enemy/EnemyBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AIAIAI/Enemy/EnemyBase.h" afterDir="false" />
     </list>
@@ -519,7 +511,7 @@
       <workItem from="1735292615920" duration="691000" />
       <workItem from="1735293455646" duration="35350000" />
       <workItem from="1735377520997" duration="47000" />
-      <workItem from="1735377581422" duration="677000" />
+      <workItem from="1735377581422" duration="5394000" />
     </task>
     <servers />
   </component>

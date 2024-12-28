@@ -16,6 +16,7 @@ class AIAIAI_API AEnemyBase : public ACharacter, public IEnemyAI
 private:
 	bool bHasWieldedSword;
 	FTimerHandle MontageTimerHandle;
+	AActor* SwordActor;
 
 public:
 	UPROPERTY(EditAnywhere, Category = "Spawning")
@@ -43,15 +44,18 @@ public:
 	// UFUNCTION(BlueprintCallable, Category="Custom")
 	UPROPERTY(Blueprintable, EditAnywhere)
 	UAnimMontage* WieldSwordMontage;
-	
+
+	UFUNCTION(BlueprintCallable)
 	void WieldSword();
 	void SpawnSword();
 
 	UPROPERTY(Blueprintable, EditAnywhere)
 	UAnimMontage* SheathSwordMontage;
-	
+
+	UFUNCTION(BlueprintCallable)
 	void SheathSword();
 	void DespawnSword();
 
+	UFUNCTION(BlueprintCallable)
 	bool GetHasWieldedSword() const { return bHasWieldedSword; }
 };

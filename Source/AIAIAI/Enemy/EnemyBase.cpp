@@ -13,14 +13,14 @@ AEnemyBase::AEnemyBase()
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	bHasWieldedSword = false;
+	// bHasWieldedSword = false;
+	SwordActor = nullptr;
 }
 
 // Called when the game starts or when spawned
 void AEnemyBase::BeginPlay()
 {
 	Super::BeginPlay();
-	// WieldSword();
 }
 
 // Called every frame
@@ -32,7 +32,7 @@ void AEnemyBase::Tick(float DeltaTime)
 // Custom event implementation
 void AEnemyBase::WieldSword()
 {
-	if (bHasWieldedSword)
+	if (bHasWieldedSword || SwordActor)
 	{
 		return;
 	}
@@ -49,23 +49,99 @@ void AEnemyBase::WieldSword()
 
 	USkeletalMeshComponent* SkeletalMeshComponent =
 		Cast<USkeletalMeshComponent>(this->GetComponentByClass(USkeletalMeshComponent::StaticClass()));
-
-	if (SkeletalMeshComponent)
-	{
-		UAnimInstance* AnimInstance = SkeletalMeshComponent->GetAnimInstance();
-		
-		if (AnimInstance)
-			AnimInstance->Montage_Play(WieldSwordMontage);
-	}
 	
-	// Set a timer to check the montage's position
-	GetWorld()->GetTimerManager()
-		.SetTimer(MontageTimerHandle, this, &AEnemyBase::SpawnSword, 0.1f, true);
+	// if (SkeletalMeshComponent)
+	// {
+	// 	UAnimInstance* AnimInstance = SkeletalMeshComponent->GetAnimInstance();
+	// 	
+	// 	if (AnimInstance)
+	// 		AnimInstance->Montage_Play(WieldSwordMontage);
+	// }
+	//
+	// // Set a timer to check the montage's position
+	// GetWorld()->GetTimerManager()
+	// 	.SetTimer(MontageTimerHandle, this, &AEnemyBase::SpawnSword, 0.1f, true);
+
+	if (UWorld* world = GetWorld())
+	{
+		SwordActor =
+			world->SpawnActor<AActor>(BlueprintActor, GetActorLocation(), GetActorRotation());
+
+		// TSharedPtr<AActor> spawnedActorShared = MakeShareable(spawnedActor);
+		
+		if (SwordActor)
+		{
+			if (SkeletalMeshComponent)
+			{
+				FName socketName(TEXT("hand_r_socket_sword"));
+				SwordActor->AttachToComponent(
+					SkeletalMeshComponent, FAttachmentTransformRules::SnapToTargetIncludingScale, socketName);
+			}
+		}
+	}
+
+	bHasWieldedSword = true;
 }
 
 void AEnemyBase::SpawnSword()
 {
-	if (bHasWieldedSword)
+	// if (bHasWieldedSword)
+	// 	return;
+	//
+	// USkeletalMeshComponent* SkeletalMeshComponent =
+	// 	Cast<USkeletalMeshComponent>(this->GetComponentByClass(USkeletalMeshComponent::StaticClass()));
+	//
+	// if (SkeletalMeshComponent)
+	// {
+	// 	UE_LOG(LogTemp, Warning, TEXT("Skeletal mesh component found"));
+	// 	
+	// 	UAnimInstance* AnimInstance = SkeletalMeshComponent->GetAnimInstance();
+	//
+	// 	if (AnimInstance)
+	// 	{
+	// 		if (AnimInstance->Montage_IsPlaying(WieldSwordMontage))
+	// 		{
+	// 			float progress =
+	// 				AnimInstance->Montage_GetPosition(WieldSwordMontage) / WieldSwordMontage->GetPlayLength();
+	//
+	// 			UE_LOG(LogTemp, Warning, TEXT("Progress: %f"), progress);
+	// 			
+	// 			if (progress >= 0.25f)
+	// 			{
+	// 				if (UWorld* world = GetWorld())
+	// 				{
+	// 					AActor* spawnedActor =
+	// 						world->SpawnActor<AActor>(BlueprintActor, GetActorLocation(), GetActorRotation());
+	//
+	// 					// TSharedPtr<AActor> spawnedActorShared = MakeShareable(spawnedActor);
+	// 	
+	// 					if (spawnedActor)
+	// 					{
+	// 						if (SkeletalMeshComponent)
+	// 						{
+	// 							FName socketName(TEXT("hand_r_socket_sword"));
+	// 							spawnedActor->AttachToComponent(
+	// 								SkeletalMeshComponent, FAttachmentTransformRules::SnapToTargetIncludingScale, socketName);
+	// 						}
+	// 					}
+	// 				}
+	//
+	// 				bHasWieldedSword = true;
+	// 				GetWorld()->GetTimerManager().ClearTimer(MontageTimerHandle);
+	// 			}
+	// 		}
+	// 		else
+	// 		{
+	// 			// Clear the timer if the montage is no longer playing
+	// 			GetWorld()->GetTimerManager().ClearTimer(MontageTimerHandle);
+	// 		}
+	// 	}
+	// }
+}
+
+void AEnemyBase::SheathSword()
+{
+	if (!bHasWieldedSword || !SwordActor)
 		return;
 	
 	USkeletalMeshComponent* SkeletalMeshComponent =
@@ -73,66 +149,13 @@ void AEnemyBase::SpawnSword()
 
 	if (SkeletalMeshComponent)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Skeletal mesh component found"));
+		// UAnimInstance* AnimInstance = SkeletalMeshComponent->GetAnimInstance();
+		//
+		// if (AnimInstance)
+		// 	AnimInstance->Montage_Play(SheathSwordMontage);
 		
-		UAnimInstance* AnimInstance = SkeletalMeshComponent->GetAnimInstance();
-
-		if (AnimInstance)
-		{
-			if (AnimInstance->Montage_IsPlaying(WieldSwordMontage))
-			{
-				float progress =
-					AnimInstance->Montage_GetPosition(WieldSwordMontage) / WieldSwordMontage->GetPlayLength();
-
-				UE_LOG(LogTemp, Warning, TEXT("Progress: %f"), progress);
-				
-				if (progress >= 0.25f)
-				{
-					if (UWorld* world = GetWorld())
-					{
-						AActor* spawnedActor =
-							world->SpawnActor<AActor>(BlueprintActor, GetActorLocation(), GetActorRotation());
-
-						// TSharedPtr<AActor> spawnedActorShared = MakeShareable(spawnedActor);
-		
-						if (spawnedActor)
-						{
-							if (SkeletalMeshComponent)
-							{
-								FName socketName(TEXT("hand_r_socket_sword"));
-								spawnedActor->AttachToComponent(
-									SkeletalMeshComponent, FAttachmentTransformRules::SnapToTargetIncludingScale, socketName);
-							}
-						}
-					}
-
-					bHasWieldedSword = true;
-					GetWorld()->GetTimerManager().ClearTimer(MontageTimerHandle);
-				}
-			}
-			else
-			{
-				// Clear the timer if the montage is no longer playing
-				GetWorld()->GetTimerManager().ClearTimer(MontageTimerHandle);
-			}
-		}
-	}
-}
-
-void AEnemyBase::SheathSword()
-{
-	if (!bHasWieldedSword)
-		return;
-	
-	USkeletalMeshComponent* SkeletalMeshComponent =
-	Cast<USkeletalMeshComponent>(this->GetComponentByClass(USkeletalMeshComponent::StaticClass()));
-
-	if (SkeletalMeshComponent)
-	{
-		UAnimInstance* AnimInstance = SkeletalMeshComponent->GetAnimInstance();
-		
-		if (AnimInstance)
-			AnimInstance->Montage_Play(SheathSwordMontage);
+		SwordActor->Destroy();
+		SwordActor = nullptr;
 	}
 	
 	bHasWieldedSword = false;
@@ -140,11 +163,11 @@ void AEnemyBase::SheathSword()
 
 void AEnemyBase::DespawnSword()
 {
-	if (!bHasWieldedSword)
-		return;
-	
-	USkeletalMeshComponent* SkeletalMeshComponent =
-		Cast<USkeletalMeshComponent>(this->GetComponentByClass(USkeletalMeshComponent::StaticClass()));
+	// if (!bHasWieldedSword)
+	// 	return;
+	//
+	// USkeletalMeshComponent* SkeletalMeshComponent =
+	// 	Cast<USkeletalMeshComponent>(this->GetComponentByClass(USkeletalMeshComponent::StaticClass()));
 
 	// GetComponentByClass(BlueprintActor->GetClass())->DestroyComponent();
 }
