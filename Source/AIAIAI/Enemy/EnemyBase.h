@@ -37,6 +37,12 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category="Custom")
 	virtual void SetMoveSpeed(float speed) override;
+
+	UFUNCTION(BlueprintCallable, Category="Custom")
+	virtual float GetAttackRange() const override;
+
+	UFUNCTION(BlueprintCallable, Category="Custom")
+	virtual float GetDefendRange() const override;
 	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

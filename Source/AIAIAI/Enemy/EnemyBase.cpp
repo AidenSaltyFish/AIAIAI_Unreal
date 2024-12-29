@@ -182,6 +182,16 @@ void AEnemyBase::SetMoveSpeed(float speed)
 	GetCharacterMovement()->MaxWalkSpeed = speed;
 }
 
+float AEnemyBase::GetAttackRange() const
+{
+	return 150;
+}
+
+float AEnemyBase::GetDefendRange() const
+{
+	return 350;
+}
+
 // // Custom event implementation
 // void AEnemyBase::WieldSword()
 // {

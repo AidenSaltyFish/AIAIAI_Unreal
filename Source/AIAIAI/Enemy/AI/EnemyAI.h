@@ -26,4 +26,8 @@ public:
 	virtual ASplineController* GetPatrolRoute() = 0;
 
 	virtual void SetMoveSpeed(float speed) = 0;
+
+	virtual float GetAttackRange() const = 0;
+
+	virtual float GetDefendRange() const = 0;
 };
