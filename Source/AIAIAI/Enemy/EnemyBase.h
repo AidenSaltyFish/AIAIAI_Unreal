@@ -14,16 +14,21 @@ class AIAIAI_API AEnemyBase : public ACharacter, public IEnemyAI
 	GENERATED_BODY()
 
 private:
-	bool bHasWieldedSword;
-	FTimerHandle MontageTimerHandle;
-	AActor* SwordActor;
+	bool bHasEquippedWeapon;
+	AActor* WeaponActor;
 
 public:
 	UPROPERTY(EditAnywhere, Category = "Spawning")
-	TSubclassOf<AActor> BlueprintActor;
+	TSubclassOf<AActor> WeaponBPActor;
 
 	UPROPERTY(EditAnywhere, Category = "Spline")
 	ASplineController* SplineController;
+
+	UPROPERTY(EditAnywhere, Category = "Weapon")
+	FName WeaponSocketName;
+
+	UPROPERTY(EditAnywhere, Category = "Weapon")
+	bool bEquipWeaponAtBeginPlay;
 
 protected:
 	// Called when the game starts or when spawned
@@ -48,20 +53,29 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	// UFUNCTION(BlueprintCallable, Category="Custom")
-	UPROPERTY(Blueprintable, EditAnywhere)
-	UAnimMontage* WieldSwordMontage;
+	// UPROPERTY(Blueprintable, EditAnywhere)
+	// UAnimMontage* WieldSwordMontage;
+
+	// UFUNCTION(BlueprintCallable)
+	// void WieldSword();
+	// void SpawnSword();
+
+	// UPROPERTY(Blueprintable, EditAnywhere)
+	// UAnimMontage* SheathSwordMontage;
+
+	// UFUNCTION(BlueprintCallable)
+	// void SheathSword();
+	// void DespawnSword();
 
 	UFUNCTION(BlueprintCallable)
-	void WieldSword();
-	void SpawnSword();
-
-	UPROPERTY(Blueprintable, EditAnywhere)
-	UAnimMontage* SheathSwordMontage;
+	virtual void EquipWeapon() override;
 
 	UFUNCTION(BlueprintCallable)
-	void SheathSword();
-	void DespawnSword();
+	virtual void UnequipWeapon() override;
 
 	UFUNCTION(BlueprintCallable)
-	bool GetHasWieldedSword() const { return bHasWieldedSword; }
+	virtual void Attack() override;
+
+	UFUNCTION(BlueprintCallable)
+	bool GetHasEquippedWeapon() const { return bHasEquippedWeapon; }
 };

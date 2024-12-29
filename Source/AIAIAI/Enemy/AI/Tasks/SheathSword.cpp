@@ -16,7 +16,7 @@ USheathSword::USheathSword()
 EBTNodeResult::Type USheathSword::ExecuteTask(UBehaviorTreeComponent& OwnerComp, uint8* NodeMemory)
 {
 	AEnemyBase* enemy = Cast<AEnemyBase>(OwnerComp.GetAIOwner()->GetPawn());
-	enemy->SheathSword();
+	enemy->UnequipWeapon();
 
 	return EBTNodeResult::Succeeded;
 }

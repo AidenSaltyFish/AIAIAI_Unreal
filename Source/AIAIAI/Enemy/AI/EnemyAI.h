@@ -30,4 +30,10 @@ public:
 	virtual float GetAttackRange() const = 0;
 
 	virtual float GetDefendRange() const = 0;
+
+	virtual void EquipWeapon() = 0;
+
+	virtual void UnequipWeapon() = 0;
+
+	virtual void Attack() = 0;
 };
