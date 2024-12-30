@@ -16,6 +16,8 @@ class AIAIAI_API AEnemyBase : public ACharacter, public IEnemyAI
 private:
 	bool bHasEquippedWeapon;
 	AActor* WeaponActor;
+	bool bIsDead;
+	float Health;
 
 public:
 	UPROPERTY(EditAnywhere, Category = "Spawning")
@@ -29,6 +31,18 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Weapon")
 	bool bEquipWeaponAtBeginPlay;
+
+	UPROPERTY(EditAnywhere, Category = "Range")
+	float AttackRange;
+
+	UPROPERTY(EditAnywhere, Category = "Range")
+	float DefendRange;
+	
+	UPROPERTY(EditAnywhere, Category = "Health")
+	float MaxHealth;
+
+	UPROPERTY(EditAnywhere, Category = "Health")
+	float HealPercentage;
 
 protected:
 	// Called when the game starts or when spawned
@@ -48,6 +62,12 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category="Custom")
 	virtual float GetDefendRange() const override;
+
+	UFUNCTION(BlueprintCallable, Category="Custom")
+	virtual float GetCurHealth() const override;
+
+	UFUNCTION(BlueprintCallable, Category="Custom")
+	virtual float GetMaxHealth() const override;
 	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -78,4 +98,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	bool GetHasEquippedWeapon() const { return bHasEquippedWeapon; }
+
+	UFUNCTION(BlueprintCallable)
+	virtual void Heal();
+
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 };

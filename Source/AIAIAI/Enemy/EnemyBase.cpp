@@ -15,6 +15,9 @@ AEnemyBase::AEnemyBase()
 
 	// bHasWieldedSword = false;
 	WeaponActor = nullptr;
+	bIsDead = false;
+
+	Health = MaxHealth;
 
 	// WeaponSocketName = FName(TEXT("hand_r_socket_sword"));
 }
@@ -28,6 +31,13 @@ void AEnemyBase::BeginPlay()
 	{
 		EquipWeapon();
 	}
+
+	Health = MaxHealth;
+}
+
+float AEnemyBase::GetMaxHealth() const
+{
+	return MaxHealth;
 }
 
 // Called every frame
@@ -86,6 +96,23 @@ void AEnemyBase::Attack()
 {
 }
 
+void AEnemyBase::Heal()
+{
+	Health += HealPercentage * MaxHealth;
+	Health = FMath::Clamp(Health, 0.0f, MaxHealth);
+}
+
+float AEnemyBase::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent,
+                             class AController* EventInstigator, AActor* DamageCauser)
+{
+	Health -= DamageAmount;
+	Health = FMath::Clamp(Health, 0.0f, MaxHealth);
+
+	bIsDead = Health <= 0.0f;
+	
+	return DamageAmount;
+}
+
 ASplineController* AEnemyBase::GetPatrolRoute()
 {
 	return SplineController;
@@ -98,12 +125,17 @@ void AEnemyBase::SetMoveSpeed(float speed)
 
 float AEnemyBase::GetAttackRange() const
 {
-	return 150;
+	return AttackRange;
 }
 
 float AEnemyBase::GetDefendRange() const
 {
-	return 350;
+	return DefendRange;
+}
+
+float AEnemyBase::GetCurHealth() const
+{
+	return Health;
 }
 
 // // Custom event implementation

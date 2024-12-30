@@ -36,4 +36,8 @@ public:
 	virtual void UnequipWeapon() = 0;
 
 	virtual void Attack() = 0;
+
+	virtual float GetCurHealth() const = 0;
+
+	virtual float GetMaxHealth() const = 0;
 };
