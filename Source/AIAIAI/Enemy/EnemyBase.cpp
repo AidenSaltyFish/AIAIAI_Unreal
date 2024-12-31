@@ -35,10 +35,10 @@ void AEnemyBase::BeginPlay()
 	Health = MaxHealth;
 }
 
-float AEnemyBase::GetMaxHealth() const
-{
-	return MaxHealth;
-}
+// float AEnemyBase::GetMaxHealth() const
+// {
+// 	return MaxHealth;
+// }
 
 // Called every frame
 void AEnemyBase::Tick(float DeltaTime)
@@ -96,11 +96,11 @@ void AEnemyBase::Attack()
 {
 }
 
-void AEnemyBase::Heal()
-{
-	Health += HealPercentage * MaxHealth;
-	Health = FMath::Clamp(Health, 0.0f, MaxHealth);
-}
+// void AEnemyBase::Heal()
+// {
+// 	Health += HealPercentage * MaxHealth;
+// 	Health = FMath::Clamp(Health, 0.0f, MaxHealth);
+// }
 
 float AEnemyBase::TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent,
                              class AController* EventInstigator, AActor* DamageCauser)
@@ -133,10 +133,10 @@ float AEnemyBase::GetDefendRange() const
 	return DefendRange;
 }
 
-float AEnemyBase::GetCurHealth() const
-{
-	return Health;
-}
+// float AEnemyBase::GetCurHealth() const
+// {
+// 	return Health;
+// }
 
 // // Custom event implementation
 // void AEnemyBase::WieldSword()

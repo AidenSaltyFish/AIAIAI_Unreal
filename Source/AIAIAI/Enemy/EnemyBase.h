@@ -63,11 +63,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Custom")
 	virtual float GetDefendRange() const override;
 
-	UFUNCTION(BlueprintCallable, Category="Custom")
-	virtual float GetCurHealth() const override;
-
-	UFUNCTION(BlueprintCallable, Category="Custom")
-	virtual float GetMaxHealth() const override;
+	// UFUNCTION(BlueprintCallable, Category="Custom")
+	// virtual float GetCurHealth() const override;
+	//
+	// UFUNCTION(BlueprintCallable, Category="Custom")
+	// virtual float GetMaxHealth() const override;
 	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -99,8 +99,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool GetHasEquippedWeapon() const { return bHasEquippedWeapon; }
 
-	UFUNCTION(BlueprintCallable)
-	virtual void Heal();
+	// UFUNCTION(BlueprintCallable)
+	// virtual void Heal();
 
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 };
