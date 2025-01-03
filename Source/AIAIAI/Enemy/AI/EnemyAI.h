@@ -37,6 +37,8 @@ public:
 
 	virtual void Attack() = 0;
 
+	virtual void JumpToDestination(FVector destination) = 0;
+
 	// virtual float GetCurHealth() const = 0;
 	//
 	// virtual float GetMaxHealth() const = 0;

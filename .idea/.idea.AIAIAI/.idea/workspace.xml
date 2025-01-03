@@ -13,55 +13,16 @@
   <component name="ChangeListManager">
     <list default="true" id="7745843b-e242-4054-817b-99c519342138" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AIAIAI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AIAIAI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/DamageSystem/BPI_Damagable.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/DamageSystem/BPI_Damagable.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/DamageSystem/Enemy/BP_EnemyDamage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/DamageSystem/Enemy/BP_EnemyDamage.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/DamageSystem/Player/BPC_DamageSystem.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/DamageSystem/Player/BP_PlayerDamage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/DamageSystem/Player/BP_PlayerDamage.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/BehaviorTrees/BTD_CanSeeTarget.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/BehaviorTrees/BTD_ISHealthBelowThreshold.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/BehaviorTrees/BT_EnemyBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/BehaviorTrees/BT_EnemyBase.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/BehaviorTrees/BT_EnemyMelee.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/BehaviorTrees/BT_EnemyMelee.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/BehaviorTrees/BT_EnemyRifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/BehaviorTrees/BT_EnemyRifle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/BehaviorTrees/BT_Sub_Investigating.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/BehaviorTrees/BT_Sub_Investigating.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/BehaviorTrees/BT_Sub_Passive.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/BehaviorTrees/BT_Sub_Passive.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/Controller/AIC_EnemyBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/Controller/AIC_EnemyBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/Tasks/BTD_HasPatrol.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/Tasks/BTT_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/Tasks/BTT_Attack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/Tasks/BTT_EquipWeapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/Tasks/BTT_EquipWeapon.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/Tasks/BTT_Heal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/Tasks/BTT_Heal.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/Tasks/BTT_UnequipWeapon.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/Tasks/BTT_UnequipWeapon.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/RifleStrafe/BS_RifleStrafe.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/RifleStrafe/MM_Firing_Rifle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/RifleStrafe/MM_Firing_Rifle_Montage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/RifleStrafe/MM_Idle_Rifle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/RifleStrafe/MM_Rifle_Run_Bwd.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/RifleStrafe/MM_Rifle_Run_Fwd.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/RifleStrafe/MM_Rifle_Walk_Bwd.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/RifleStrafe/MM_Rifle_Walk_Fwd.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/RifleStrafe/MM_StrafeJogging_Left_Rifle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/RifleStrafe/MM_StrafeJogging_Right_Rifle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/RifleStrafe/MM_Strafe_Left_Rifle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/RifleStrafe/MM_Strafe_Right_Rifle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/SheathingSword/MM_Sheathing_Sword_Anim.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/SheathingSword/MM_Sheathing_Sword_Anim_Montage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/SlashSword/MM_Stable_Sword_Outward_Slash.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/SlashSword/MM_Stable_Sword_Outward_Slash_Montage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/Strafe/BS_Strafe.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/Strafe/MM_Sword_And_Shield_Idle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/Strafe/MM_Sword_And_Shield_Strafe_Left.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/Strafe/MM_Sword_And_Shield_Strafe_Right.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/Strafe/MM_Sword_And_Shield_Walk_Bwd.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/Strafe/MM_Sword_And_Shield_Walk_Fwd.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/WithdrawSword/MM_Withdrawing_Sword_Anim.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Animation/WithdrawSword/MM_Withdrawing_Sword_Anim_Montage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Blueprint/Animation/ABP_EnemyBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/Blueprint/Animation/ABP_EnemyBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Blueprint/Animation/ABP_EnemyRifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/Blueprint/Animation/ABP_EnemyRifle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Blueprint/BP_EnemyBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/Blueprint/BP_EnemyBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Blueprint/BP_EnemyRifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/Blueprint/BP_EnemyRifle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Enemies/Blueprint/BP_Melee.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/Blueprint/BP_Melee.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Gamemode/BP_Gamemode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Gamemode/BP_Gamemode.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Player/BP_Player.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Player/BP_Player.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/0/O8/VO0IWS3D1LCP0QO8H8YID2.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/Enums/E_EnemyStates.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/Enums/E_EnemyStates.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Enemies/AI/Tasks/BTT_MoveToIdealRange.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Enemies/AI/Tasks/BTT_MoveToIdealRange.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/2/S0/DK48D4O3CG4EFMN1HINXX7.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/3/P3/O43ETCZTFMLWWH1CJ941H2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/3/P3/O43ETCZTFMLWWH1CJ941H2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/HF/9H7TKAXH9DD8KI3TIXGI2I.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/HF/9H7TKAXH9DD8KI3TIXGI2I.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/9/X8/K6M7361YV4QEGPDED3XI3O.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/9/X8/K6M7361YV4QEGPDED3XI3O.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/WJ/LWRIWRZW8MAS7YYEPO4FEJ.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/E/WJ/LWRIWRZW8MAS7YYEPO4FEJ.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/AIAIAI/Enemy/AI/EnemyAI.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AIAIAI/Enemy/AI/EnemyAI.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/AIAIAI/Enemy/EnemyBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AIAIAI/Enemy/EnemyBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/AIAIAI/Enemy/EnemyBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AIAIAI/Enemy/EnemyBase.h" afterDir="false" />
@@ -561,6 +522,8 @@
       <workItem from="1735565566984" duration="3994000" />
       <workItem from="1735653118282" duration="77000" />
       <workItem from="1735653209659" duration="3733000" />
+      <workItem from="1735916899080" duration="62000" />
+      <workItem from="1735916974733" duration="2904000" />
     </task>
     <servers />
   </component>

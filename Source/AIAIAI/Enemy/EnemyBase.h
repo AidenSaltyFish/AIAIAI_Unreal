@@ -97,6 +97,9 @@ public:
 	virtual void Attack() override;
 
 	UFUNCTION(BlueprintCallable)
+	virtual void JumpToDestination(FVector destination) override;
+
+	UFUNCTION(BlueprintCallable)
 	bool GetHasEquippedWeapon() const { return bHasEquippedWeapon; }
 
 	// UFUNCTION(BlueprintCallable)

@@ -5,6 +5,8 @@
 
 #include "AIController.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "Kismet/GameplayStaticsTypes.h"
 
 
 // Sets default values
@@ -94,6 +96,27 @@ void AEnemyBase::UnequipWeapon()
 
 void AEnemyBase::Attack()
 {
+}
+
+void AEnemyBase::JumpToDestination(FVector destination)
+{
+	FVector StartLocation = GetActorLocation();
+	FVector LaunchVelocity;
+
+	destination.Z += 250;
+	
+	bool bResult = UGameplayStatics::SuggestProjectileVelocity_CustomArc(
+		this,
+		LaunchVelocity,
+		StartLocation,
+		destination
+	);
+	
+	if (bResult)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Launch velocity: %s"), *LaunchVelocity.ToString());
+		LaunchCharacter(LaunchVelocity, true, true);
+	}
 }
 
 // void AEnemyBase::Heal()
